@@ -25,22 +25,39 @@ var app = express();
 // })
 
 
-app.get('/',(req,res)=>{
-    res.send("hello");
-})
-app.get('/ab?c',(req,res)=>{
-    res.send('hello 123');
-})
+// app.get('/',(req,res)=>{
+//     res.send("hello");
+// })
+// app.get('/ab?c',(req,res)=>{
+//     res.send('hello 123');
+// })
 
-app.get('/*fly$/',(req,res)=>{
-    res.send('you can fly!!!!!!!!!!!!!!');
-})
+// app.get('/*fly$/',(req,res)=>{
+//     res.send('you can fly!!!!!!!!!!!!!!');
+// })
 
 app.get('/user/:userid/book/:bookid',(req,res)=>{
-        res.send("hello 123 from book");
+        res.send(req.params);
 })
 
+// const passwordChecker=(req,res,next)=>{
+//     console.log("password Checker");
+//     next();
+// }
 
+// const hello=(req,res)=>{
+//     res.send('hello from hello');
+// }
+// // app.get('/get',(req,res,next)=>{
+// //     console.log("password checker");
+// //     next();
+// // },
+// //     (req,res)=>{
+// //         res.send("hello from 2");
+// //     }
+// // )
+
+// app.get('/get',[passwordChecker,hello])
 app.listen(3000,()=>{
     console.log('Started');
 })   
