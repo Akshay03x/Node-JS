@@ -1,13 +1,17 @@
 const express=require('express');
+const router=express.Router();
 
-const app=express();
+router.use('/user/:id',(req,res,next)=>{
+    // res.send('hello from user');
+    console.log('orignalUrl:'+req.originalUrl);
+    // console.log('hello from /');
+    next();
+}
 
+)
 
-app.get('/hello',(req,res)=>{
-    res.send("hello");
-} )
-app.get('/admin',(req,res)=>{
-    res.send("admin");
-} )
+router.get('/user/:id',(req,res)=>{
+    res.send(req.params);
+})
 
-module.exports.app =app
+module.exports=router;
