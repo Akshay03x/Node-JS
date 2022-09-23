@@ -1,3 +1,5 @@
+//---------------------demo express----------
+
 const express=require('express');
 var app = express();
 
@@ -14,7 +16,7 @@ var app = express();
 //     res.send("<h1>Contact</h1>");
 // })
 
-
+//-----------------------use middleWare----------------------------------------
 // app.get('/',(req,res,next)=>{
 //     // res.send("hello 123");
 //     console.log(res.body);
@@ -24,7 +26,7 @@ var app = express();
 //     res.send("About 1234");
 // })
 
-
+//----------------------------------using string pattern-----------------
 // app.get('/',(req,res)=>{
 //     res.send("hello");
 // })
@@ -32,13 +34,26 @@ var app = express();
 //     res.send('hello 123');
 // })
 
+//------------------using regular expression------------------
 // app.get('/*fly$/',(req,res)=>{
 //     res.send('you can fly!!!!!!!!!!!!!!');
 // })
 
+
+//----------------------- using id----------------------
 // app.get('/user/:userid/book/:bookid',(req,res)=>{
 //         res.send(req.params);
 // })
+
+//---------------------------- using route handlers ------------
+// app.get('/get',(req,res,next)=>{
+//     console.log("password checker");
+//     next();
+// },
+//     (req,res)=>{
+//         res.send("hello from 2"); 
+//     }
+// )
 
 // const passwordChecker=(req,res,next)=>{
 //     console.log("password Checker");
@@ -48,33 +63,29 @@ var app = express();
 // const hello=(req,res)=>{
 //     res.send('hello from hello');
 // }
-// // app.get('/get',(req,res,next)=>{
-// //     console.log("password checker");
-// //     next();
-// // },
-// //     (req,res)=>{
-// //         res.send("hello from 2"); 
-// //     }
-// // )
+
 
 // app.get('/get',[passwordChecker,hello])
 
-app.use('/admin',(req,res,next)=>{
-    res.sendfile('hello.html');
-    next();
-})
+//----------------------------------app.use()method ------------
 
-// const xyz=require('/app');
-app.get('/admin',(req,res)=>{
-    console.log('hello');
-})
-app.get('/admin/hello',(req,res)=>{
-    console.log('hello from hello');
-})
-// app.get('/hello',(req,res,next)=>{
-//     res.send("hello 2")
+// app.use('/admin',(req,res,next)=>{
+//     res.sendfile('hello.html');
 //     next();
 // })
+
+// ---------------------------------with express router---------------------
+
+        // const express = require('express')
+        // const app = express();
+
+        // const useRouter=require('./admin');
+
+        // app.use(useRouter);
+    // app.get('/',(req,res)=>{
+    //     res.send('hello');
+    // })
+
 app.listen(3000,()=>{
     console.log('Started');
 })   
