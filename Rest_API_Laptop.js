@@ -3,9 +3,15 @@ const express = require('express');
 const mongoose = require('mongoose');
 const Laptop=require('./model/Laptop');
 const bodyParser=require('body-parser');
+const cors=require('cors');
+// var jsonParser = bodyParser.json()
 mongoose.connect('mongodb+srv://Akshay03x:Akshay03x@cluster0.kltd5zl.mongodb.net/Laptops?retryWrites=true&w=majority').then(()=>{
     const app=express();
+
     app.use(bodyParser.urlencoded({ extended: false }))
+    // app.use(bodyParser.json());
+    app.use(cors());
+
     app.get('/', (req,res)=>{
         res.send("Home Page");
     })
@@ -38,7 +44,7 @@ mongoose.connect('mongodb+srv://Akshay03x:Akshay03x@cluster0.kltd5zl.mongodb.net
 
     app.put('/Laptop/:id',async (req,res)=>{
         const data=await Laptop.findOne({id:req.params.id})
-        data.lapTopName=req.body.LaptopName;
+        data.lapTopName=req.body.laptopName;
         await data.save();
         res.send(data);
     })
