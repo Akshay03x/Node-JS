@@ -1,5 +1,5 @@
-const express=require('express');
-const router=express.Router();
+const express=require('express')
+const router=express.Router()
 
 router.use('/user/:id',(req,res,next)=>{
     // res.send('hello from user');
