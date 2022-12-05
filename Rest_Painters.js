@@ -1,5 +1,5 @@
 const mongoose =require('mongoose')
-const Painter=require('./Model/Painter')
+const Painter=require('./model/Painter')
 const express =require('express')
 const bodyParser=require('body-parser')
 const url='mongodb+srv://Akshay03x:Akshay03x@cluster0.kltd5zl.mongodb.net/Painters?retryWrites=true&w=majority'
